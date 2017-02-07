@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="app">
+			{{message}}
+			<p>总金额:{{totalMoney}}</p>
+			<ul style="list-style-type: none;">
+				<li v-for="(item,key) in cart">
+					<span>ID:{{item.productId+"..."+key}}</span>
+					<span>产品名称:{{item.productName}}</span>
+					<span>产品价格:{{item.productPrice | formatMoney}}</span>
+					<span>产品数量:{{item.productQuentity}}</span>
+					<img :src="item.productImage"/>
+					<dl v-for="part in item.parts">
+						<dd>{{part.partsId}}</dd>
+						<dd>{{part.partsName}}</dd>
+					</dl>
+				</li>
+			</ul>
+		</div>
+		<script src="js/lib/vue2.js"></script>
+		<script src="js/lib/vue-resource.min.js"></script>
+		<script src="index.js"></script>
+	</body>
+</html>
